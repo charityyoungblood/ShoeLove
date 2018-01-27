@@ -17,6 +17,8 @@
 		9E04C35F201C02620087510A /* PricePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C35E201C02620087510A /* PricePreference.swift */; };
 		9E354118201D473300AD297C /* ShoeTypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E354117201D473300AD297C /* ShoeTypesController.swift */; };
 		9E35411A201D479800AD297C /* PricePreferenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E354119201D479800AD297C /* PricePreferenceController.swift */; };
+		9E35411C201D482900AD297C /* ShoeSuggestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35411B201D482900AD297C /* ShoeSuggestionsController.swift */; };
+		9E354120201D485400AD297C /* ShoeSuggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E35411F201D485400AD297C /* ShoeSuggestions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		9E04C35E201C02620087510A /* PricePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePreference.swift; sourceTree = "<group>"; };
 		9E354117201D473300AD297C /* ShoeTypesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeTypesController.swift; sourceTree = "<group>"; };
 		9E354119201D479800AD297C /* PricePreferenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePreferenceController.swift; sourceTree = "<group>"; };
+		9E35411B201D482900AD297C /* ShoeSuggestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSuggestionsController.swift; sourceTree = "<group>"; };
+		9E35411F201D485400AD297C /* ShoeSuggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSuggestions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			children = (
 				9E04C35C201C011A0087510A /* ShoeTypes.swift */,
 				9E04C35E201C02620087510A /* PricePreference.swift */,
+				9E35411F201D485400AD297C /* ShoeSuggestions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 				9E04C346201BF2450087510A /* ViewController.swift */,
 				9E04C344201BF2450087510A /* AppDelegate.swift */,
 				9E354119201D479800AD297C /* PricePreferenceController.swift */,
+				9E35411B201D482900AD297C /* ShoeSuggestionsController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -175,9 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E35411C201D482900AD297C /* ShoeSuggestionsController.swift in Sources */,
 				9E04C347201BF2450087510A /* ViewController.swift in Sources */,
 				9E04C345201BF2450087510A /* AppDelegate.swift in Sources */,
 				9E04C35F201C02620087510A /* PricePreference.swift in Sources */,
+				9E354120201D485400AD297C /* ShoeSuggestions.swift in Sources */,
 				9E04C35D201C011A0087510A /* ShoeTypes.swift in Sources */,
 				9E354118201D473300AD297C /* ShoeTypesController.swift in Sources */,
 				9E04C34D201BF2450087510A /* ShoeLove.xcdatamodeld in Sources */,
