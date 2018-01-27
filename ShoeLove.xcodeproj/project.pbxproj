@@ -56,15 +56,39 @@
 		9E04C343201BF2450087510A /* ShoeLove */ = {
 			isa = PBXGroup;
 			children = (
-				9E04C344201BF2450087510A /* AppDelegate.swift */,
-				9E04C346201BF2450087510A /* ViewController.swift */,
-				9E04C348201BF2450087510A /* Main.storyboard */,
-				9E04C34E201BF2450087510A /* Assets.xcassets */,
+				9E04C35B201C00170087510A /* Controller */,
+				9E04C35A201C000E0087510A /* View */,
+				9E04C359201C00080087510A /* Model */,
 				9E04C350201BF2450087510A /* LaunchScreen.storyboard */,
 				9E04C353201BF2450087510A /* Info.plist */,
 				9E04C34B201BF2450087510A /* ShoeLove.xcdatamodeld */,
 			);
 			path = ShoeLove;
+			sourceTree = "<group>";
+		};
+		9E04C359201C00080087510A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E04C35A201C000E0087510A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E04C348201BF2450087510A /* Main.storyboard */,
+				9E04C34E201BF2450087510A /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E04C35B201C00170087510A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E04C346201BF2450087510A /* ViewController.swift */,
+				9E04C344201BF2450087510A /* AppDelegate.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
