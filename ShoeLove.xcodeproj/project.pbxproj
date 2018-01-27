@@ -13,6 +13,8 @@
 		9E04C34D201BF2450087510A /* ShoeLove.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C34B201BF2450087510A /* ShoeLove.xcdatamodeld */; };
 		9E04C34F201BF2450087510A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E04C34E201BF2450087510A /* Assets.xcassets */; };
 		9E04C352201BF2450087510A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E04C350201BF2450087510A /* LaunchScreen.storyboard */; };
+		9E04C35D201C011A0087510A /* ShoeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C35C201C011A0087510A /* ShoeTypes.swift */; };
+		9E04C35F201C02620087510A /* PricePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C35E201C02620087510A /* PricePreference.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9E04C34E201BF2450087510A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E04C351201BF2450087510A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E04C353201BF2450087510A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E04C35C201C011A0087510A /* ShoeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeTypes.swift; sourceTree = "<group>"; };
+		9E04C35E201C02620087510A /* PricePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePreference.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 		9E04C359201C00080087510A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9E04C35C201C011A0087510A /* ShoeTypes.swift */,
+				9E04C35E201C02620087510A /* PricePreference.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +171,8 @@
 			files = (
 				9E04C347201BF2450087510A /* ViewController.swift in Sources */,
 				9E04C345201BF2450087510A /* AppDelegate.swift in Sources */,
+				9E04C35F201C02620087510A /* PricePreference.swift in Sources */,
+				9E04C35D201C011A0087510A /* ShoeTypes.swift in Sources */,
 				9E04C34D201BF2450087510A /* ShoeLove.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
