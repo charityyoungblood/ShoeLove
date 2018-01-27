@@ -15,6 +15,8 @@
 		9E04C352201BF2450087510A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E04C350201BF2450087510A /* LaunchScreen.storyboard */; };
 		9E04C35D201C011A0087510A /* ShoeTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C35C201C011A0087510A /* ShoeTypes.swift */; };
 		9E04C35F201C02620087510A /* PricePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C35E201C02620087510A /* PricePreference.swift */; };
+		9E354118201D473300AD297C /* ShoeTypesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E354117201D473300AD297C /* ShoeTypesController.swift */; };
+		9E35411A201D479800AD297C /* PricePreferenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E354119201D479800AD297C /* PricePreferenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		9E04C353201BF2450087510A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E04C35C201C011A0087510A /* ShoeTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeTypes.swift; sourceTree = "<group>"; };
 		9E04C35E201C02620087510A /* PricePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePreference.swift; sourceTree = "<group>"; };
+		9E354117201D473300AD297C /* ShoeTypesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeTypesController.swift; sourceTree = "<group>"; };
+		9E354119201D479800AD297C /* PricePreferenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePreferenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +95,10 @@
 		9E04C35B201C00170087510A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9E354117201D473300AD297C /* ShoeTypesController.swift */,
 				9E04C346201BF2450087510A /* ViewController.swift */,
 				9E04C344201BF2450087510A /* AppDelegate.swift */,
+				9E354119201D479800AD297C /* PricePreferenceController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -173,7 +179,9 @@
 				9E04C345201BF2450087510A /* AppDelegate.swift in Sources */,
 				9E04C35F201C02620087510A /* PricePreference.swift in Sources */,
 				9E04C35D201C011A0087510A /* ShoeTypes.swift in Sources */,
+				9E354118201D473300AD297C /* ShoeTypesController.swift in Sources */,
 				9E04C34D201BF2450087510A /* ShoeLove.xcdatamodeld in Sources */,
+				9E35411A201D479800AD297C /* PricePreferenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
