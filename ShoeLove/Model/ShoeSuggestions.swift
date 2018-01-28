@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+class ShoeSuggestions {
+    
+    // this is the page the user will see after they've entered type and price preferences
+}

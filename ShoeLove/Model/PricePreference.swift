@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+class PricePreference {
+    // this is the page that will display price ranges for user
+}

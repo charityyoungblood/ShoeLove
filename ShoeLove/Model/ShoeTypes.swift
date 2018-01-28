@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+class ShoeTypes {
+    // this page will display shoe types: pumps, sandals, booties, flats 
+}
