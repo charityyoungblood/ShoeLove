@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
-    let APP_ID = 
+    let APP_ID = "a3d337183a430d921a50f64a3f37677a" // this is the same as the API key
 
     override func viewDidLoad() {
         super.viewDidLoad()
