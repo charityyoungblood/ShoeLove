@@ -10,7 +10,7 @@ target 'ShoeLove' do
 
   # Pods for ShoeLove
 
-    pod 'SwiftJSON'
+    pod 'SwiftyJSON'
     pod 'Alamofire'
     pod 'SVProgressHUD'
 
