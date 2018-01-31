@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6886CC4A954671FA972F8AAC /* Pods_ShoeLove.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CDBB14FD8EA5427E467DCF /* Pods_ShoeLove.framework */; };
 		9E04C345201BF2450087510A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C344201BF2450087510A /* AppDelegate.swift */; };
 		9E04C347201BF2450087510A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C346201BF2450087510A /* ViewController.swift */; };
 		9E04C34A201BF2450087510A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E04C348201BF2450087510A /* Main.storyboard */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BEFA72366256317985B50B6 /* Pods-ShoeLove.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoeLove.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShoeLove/Pods-ShoeLove.debug.xcconfig"; sourceTree = "<group>"; };
+		7437211F531828CB351D3113 /* Pods-ShoeLove.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoeLove.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShoeLove/Pods-ShoeLove.release.xcconfig"; sourceTree = "<group>"; };
 		9E04C341201BF2450087510A /* ShoeLove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoeLove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E04C344201BF2450087510A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E04C346201BF2450087510A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		9E354119201D479800AD297C /* PricePreferenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePreferenceController.swift; sourceTree = "<group>"; };
 		9E35411B201D482900AD297C /* ShoeSuggestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSuggestionsController.swift; sourceTree = "<group>"; };
 		9E35411F201D485400AD297C /* ShoeSuggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSuggestions.swift; sourceTree = "<group>"; };
+		C9CDBB14FD8EA5427E467DCF /* Pods_ShoeLove.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoeLove.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6886CC4A954671FA972F8AAC /* Pods_ShoeLove.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331787B5A2601AE23D70EC83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9CDBB14FD8EA5427E467DCF /* Pods_ShoeLove.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67886E8891B1194F575A595C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3BEFA72366256317985B50B6 /* Pods-ShoeLove.debug.xcconfig */,
+				7437211F531828CB351D3113 /* Pods-ShoeLove.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9E04C338201BF2450087510A = {
 			isa = PBXGroup;
 			children = (
 				9E04C343201BF2450087510A /* ShoeLove */,
 				9E04C342201BF2450087510A /* Products */,
+				67886E8891B1194F575A595C /* Pods */,
+				331787B5A2601AE23D70EC83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,9 +140,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E04C356201BF2450087510A /* Build configuration list for PBXNativeTarget "ShoeLove" */;
 			buildPhases = (
+				30C778D3C8D57518DBE933F2 /* [CP] Check Pods Manifest.lock */,
 				9E04C33D201BF2450087510A /* Sources */,
 				9E04C33E201BF2450087510A /* Frameworks */,
 				9E04C33F201BF2450087510A /* Resources */,
+				B353D6230252DE378BDD6707 /* [CP] Embed Pods Frameworks */,
+				DD788D23C64D075168204489 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,6 +202,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		30C778D3C8D57518DBE933F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShoeLove-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B353D6230252DE378BDD6707 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ShoeLove/Pods-ShoeLove-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShoeLove/Pods-ShoeLove-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD788D23C64D075168204489 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShoeLove/Pods-ShoeLove-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9E04C33D201BF2450087510A /* Sources */ = {
@@ -324,6 +409,7 @@
 		};
 		9E04C357201BF2450087510A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BEFA72366256317985B50B6 /* Pods-ShoeLove.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -339,6 +425,7 @@
 		};
 		9E04C358201BF2450087510A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7437211F531828CB351D3113 /* Pods-ShoeLove.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
