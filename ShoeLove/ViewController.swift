@@ -28,7 +28,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         locationManager.delegate = self // delegate method is an included method from Apple - this allows us to access the GPS data from the iPhone
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters// the higher the accuracy, the longer it's going to take and the more battery your app will use
-        locationManager.requestWhenInUseAuthorization() = // this asks the user for their permission to give app their current location 
+        locationManager.requestWhenInUseAuthorization() // this asks the user for their permission to give app their current location
+        locationManager.startUpdatingLocation() // asynchronous method, meaning it works in the background 
         
     }
   
@@ -38,7 +39,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     } 
 
-}
+
 
 //MARK: - Networking
 /***************************************************************/
