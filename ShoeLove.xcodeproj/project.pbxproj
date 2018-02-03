@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6886CC4A954671FA972F8AAC /* Pods_ShoeLove.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CDBB14FD8EA5427E467DCF /* Pods_ShoeLove.framework */; };
 		9E04C345201BF2450087510A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C344201BF2450087510A /* AppDelegate.swift */; };
 		9E04C347201BF2450087510A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E04C346201BF2450087510A /* ViewController.swift */; };
 		9E04C34A201BF2450087510A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E04C348201BF2450087510A /* Main.storyboard */; };
@@ -23,8 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3BEFA72366256317985B50B6 /* Pods-ShoeLove.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoeLove.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShoeLove/Pods-ShoeLove.debug.xcconfig"; sourceTree = "<group>"; };
-		7437211F531828CB351D3113 /* Pods-ShoeLove.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoeLove.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShoeLove/Pods-ShoeLove.release.xcconfig"; sourceTree = "<group>"; };
 		9E04C341201BF2450087510A /* ShoeLove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoeLove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E04C344201BF2450087510A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E04C346201BF2450087510A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +36,6 @@
 		9E354119201D479800AD297C /* PricePreferenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricePreferenceController.swift; sourceTree = "<group>"; };
 		9E35411B201D482900AD297C /* ShoeSuggestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSuggestionsController.swift; sourceTree = "<group>"; };
 		9E35411F201D485400AD297C /* ShoeSuggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeSuggestions.swift; sourceTree = "<group>"; };
-		C9CDBB14FD8EA5427E467DCF /* Pods_ShoeLove.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoeLove.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,37 +43,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6886CC4A954671FA972F8AAC /* Pods_ShoeLove.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		331787B5A2601AE23D70EC83 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C9CDBB14FD8EA5427E467DCF /* Pods_ShoeLove.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		67886E8891B1194F575A595C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3BEFA72366256317985B50B6 /* Pods-ShoeLove.debug.xcconfig */,
-				7437211F531828CB351D3113 /* Pods-ShoeLove.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		9E04C338201BF2450087510A = {
 			isa = PBXGroup;
 			children = (
 				9E04C343201BF2450087510A /* ShoeLove */,
 				9E04C342201BF2450087510A /* Products */,
-				67886E8891B1194F575A595C /* Pods */,
-				331787B5A2601AE23D70EC83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -409,7 +385,6 @@
 		};
 		9E04C357201BF2450087510A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BEFA72366256317985B50B6 /* Pods-ShoeLove.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -425,7 +400,6 @@
 		};
 		9E04C358201BF2450087510A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7437211F531828CB351D3113 /* Pods-ShoeLove.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
