@@ -9,10 +9,25 @@
 import UIKit
 import CoreLocation
 
-// will either use user location (iPhone GPS) to display shoe store locations based on price
-// or display an inventory image (or multiple) based on price and shoe type 
+// this class will use user location (iPhone GPS) to display shoe store locations
 
 class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
+    
+    // TODO: Determine user location
+    
+    // TODO: Once location is found - stop searching for location
+    
+    // TODO: Inform ShoeSuggestionsController class of user location
+    
+    // TODO: Store user location - probably in a variable
+    
+    // TODO: Access user location/connect user location to google maps
+    
+    // TODO: Evaluate user price preferences
+    
+    // TODO: Display stores via Google maps, based on user price preferences 
+    
+    // TODO: Display stores near the user
     
     let googleMaps = "placeholder"
     let storeLocation = "placeholder"

@@ -31,26 +31,6 @@ class ViewController: UIViewController {
 
 
 
-//MARK: - JSON Parsing
-/***************************************************************/
-
-
-//Write the updateWeatherData method here:
-
-
-
-
-
-//MARK: - UI Updates
-/***************************************************************/
-
-
-//Write the updateUIWithWeatherData method here:
-
-
-
-
-
 
 
 
