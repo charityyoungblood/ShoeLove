@@ -9,7 +9,14 @@
 import UIKit
 import CoreLocation
 
+// will either use user location (iPhone GPS) to display shoe store locations based on price
+// or display an inventory image (or multiple) based on price and shoe type 
+
 class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
+    
+    let googleMaps = "placeholder"
+    let storeLocation = "placeholder"
+    let apiKey = "AIzaSyAJ7_iAlQJuzHNxyDGQrohfBlMm2gdei7g"
     
     let locationManager = CLLocationManager()
 

@@ -21,6 +21,8 @@ class PricePreferenceController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //TODO: functions to create
+        // if user selected $250 then display Macys, etc
 
     /*
     // MARK: - Navigation
