@@ -20,6 +20,18 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
     // TODO: Determine the availability of location services - Not all Core Location services are available on every device, and services may be temporarily unavailable in certain circumstances
         // ** check the availability of that service using the methods of your CLLocationManager() object (this is set to your locationManager variable)**
+    func locationServicesAvailability() {
+        if CLLocationManager.locationServicesEnabled() { // why can't I use the locationManager variable here? 
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                print("No access")
+            case .authorizedAlways, .authorizedWhenInUse:
+                print("Access")
+            }
+        } else {
+            print("Location services are not enabled")
+        }
+    }
     
     // TODO: Determine user location
     
