@@ -15,13 +15,20 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
     // TODO: Determine user location
     
+    //**IMPORTANT TODO: ASKING USER FOR LOCATION PERMISSION** It is recommended that you request only when-in-use authorization whenever possible. If your app requests and receives when-in-use authorization, you can make a separate request for always authorization later.
+    
+    // **IMPORTANT TODO: PICKING SERVICE TYPE TO FETCH USER LOCATION** - To help save power, disable location services (or switch to a lower-power alternative) when you do not need the location data offered by the service. For example, you might disable location services when your app is in the background and would not use that data otherwise.
+    
     let locationManager = CLLocationManager() // this represents creation of a new CLLocationManager() object with no parameters and storing it into
     // the variable "locationManager"
+    
+    // TODO: create a function that requests permission/asks user to access their location - with popup
     
     func startReceivingSignificantLocationChanges() {
         let authorizationStatus = CLLocationManager.authorizationStatus()
         if authorizationStatus != .authorizedAlways {
-            // User has not authorized access to location information.
+            // if user has not authorized access to location information - display a popup to the user that requests authorization with message
+            // "We need to access your location to show you the nearest stores"
             return
         }
         
@@ -46,6 +53,8 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     // TODO: Access stores via Google maps, based on user price preferences
     
     // TODO: Display stores on Google maps nearest to the user location
+    
+    // TODO: Implement the method(s) for handling any potential failures in addition to the methods for receiving location-related data.
     
 //    let googleMaps = "placeholder"
 //    let storeLocation = "placeholder"
