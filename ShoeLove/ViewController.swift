@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
-    
-    
+class ViewController: UIViewController, CLLocationManagerDelegate {
+    // place location services methods in this class - this is the first page the user sees
+     let locationManager = CLLocationManager()
     
     
     override func viewDidLoad() {

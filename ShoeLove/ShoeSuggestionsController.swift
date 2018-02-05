@@ -18,6 +18,7 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
     // TODO: Check to see if your app is authorized to use location services and request permission to access user location (display pop up window)
     func isAppAuthorized(){
+        print(CLLocationManager.authorizationStatus())// what is return value for authorizationStatus() method?
         
     }
     
@@ -49,8 +50,9 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+        isAppAuthorized()
+        //locationManager.delegate = self
+        //locationManager.requestWhenInUseAuthorization()
         // Do any additional setup after loading the view.
     }
     
