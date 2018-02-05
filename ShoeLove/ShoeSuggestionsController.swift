@@ -13,6 +13,9 @@ import CoreLocation
 
 class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
+    let locationManager = CLLocationManager() // this represents creation of a new CLLocationManager() object with no parameters and storing it into
+    // the variable "locationManager"
+    
     // TODO: Ask user for permission to access their location (pop up)
     
     // TODO: Determine the availability of location services - Not all Core Location services are available on every device, and services may be temporarily unavailable in certain circumstances
@@ -24,10 +27,6 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
     // **IMPORTANT TODO: PICKING SERVICE TYPE TO FETCH USER LOCATION** - To help save power, disable location services (or switch to a lower-power alternative) when you do not need the location data offered by the service. For example, you might disable location services when your app is in the background and would not use that data otherwise.
     
-    let locationManager = CLLocationManager() // this represents creation of a new CLLocationManager() object with no parameters and storing it into
-    // the variable "locationManager"
-    
-  //why can't I attach enableLocationServices to locationManager variable? 
     
     // TODO: create a function that requests permission/asks user to access their location - with popup
     
