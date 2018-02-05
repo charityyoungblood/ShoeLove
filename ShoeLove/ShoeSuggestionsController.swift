@@ -13,6 +13,11 @@ import CoreLocation
 
 class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
+    // TODO: Ask user for permission to access their location (pop up)
+    
+    // TODO: Determine the availability of location services - Not all Core Location services are available on every device, and services may be temporarily unavailable in certain circumstances
+        // ** check the availability of that service using the methods of your CLLocationManager() object (this is set to your locationManager variable)**
+    
     // TODO: Determine user location
     
     //**IMPORTANT TODO: ASKING USER FOR LOCATION PERMISSION** It is recommended that you request only when-in-use authorization whenever possible. If your app requests and receives when-in-use authorization, you can make a separate request for always authorization later.
@@ -22,7 +27,11 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager() // this represents creation of a new CLLocationManager() object with no parameters and storing it into
     // the variable "locationManager"
     
+  //why can't I attach enableLocationServices to locationManager variable? 
+    
     // TODO: create a function that requests permission/asks user to access their location - with popup
+    
+    // TODO: disable location services when your app is in the background to save user battery
     
     func startReceivingSignificantLocationChanges() {
         let authorizationStatus = CLLocationManager.authorizationStatus()
