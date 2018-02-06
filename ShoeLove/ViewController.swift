@@ -15,36 +15,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager() // this represents creation of a new CLLocationManager() object with no parameters and storing it into
     // the variable "locationManager"
     
-    // TODO: Check to see if your app is authorized to use location services and request permission to access user location (display pop up window),
-    // ONLY request access if the user has not already granted access (don't ask every time the user uses the app)
+    // TODO: Check to see if your app is authorized to use location services and request permission to access user location (display pop up window)
+    // ** How do you ONLY request access if the user has not already granted access (don't ask every time the user uses the app) **
+    
     func isAppAuthorized(){
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
+        
+        // ** Why can't I use locationManager.authorizationStatus() since locationManager is an instance of the CLLocationManager class***
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined || CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .restricted {
+            locationManager.requestWhenInUseAuthorization()
         }
+//        this else statement isn't needed - refer to for how to create UIAlertController {
+//            let authorizeAppController = UIAlertController(title: "This App needs your authorization", message: "Please authorize location services", preferredStyle: .alert)
+//            authorizeAppController.addAction(UIAlertAction(title: "authorize app", style: .`default`, handler: nil))
+//                self.present(authorizeAppController, animated: true, completion: nil)
+//    }
+    }
+    // TODO: Determine the availability of location services
     
-    // TODO: Determine the availability of location services - Not all Core Location services are available on every device, and services may be temporarily unavailable in certain circumstances
-    // ** check the availability of that service using the methods of your CLLocationManager() object (this is set to your locationManager variable)**
     func locationServicesAvailability() {
-        if !CLLocationManager.locationServicesEnabled() { // this will check if location services are enabled.
+        if CLLocationManager.locationServicesEnabled() == false { // this will check if location services are enabled.
             //If they are - run program, if not display a popup with message to user to enable location services
             let alertController = UIAlertController(title: "Location services are disabled", message: "Please enable location services in Settings", preferredStyle: .alert)
             let userAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(userAction)
-            // does this need to be a loop -
+            alertController.addAction(userAction) // ** the alert is not displaying when app is launched **
+            self.present(alertController, animated: true, completion: nil)
+            // does this need to be a loop?
         }
     }
-        
-//        if CLLocationManager.locationServicesEnabled() { // why can't I use the locationManager instance variable here?
-//            switch CLLocationManager.authorizationStatus() {
-//            case .notDetermined, .restricted, .denied:
-//                print("No access")
-//            case .authorizedAlways, .authorizedWhenInUse:
-//                print("Access")
-//            }
-//        } else {
-//            print("Location services are not enabled")
-//        }
-//    }
     
     // TODO: Determine user location
     
@@ -59,27 +58,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationServicesAvailability()
-        
+       isAppAuthorized()
+       
     
     }
     
-    func startReceivingSignificantLocationChanges() {
-        let authorizationStatus = CLLocationManager.authorizationStatus()
-        if authorizationStatus != .authorizedAlways {
-            // if user has not authorized access to location information - display a popup to the user that requests authorization with message
-            // "We need to access your location to show you the nearest stores"
-            return
-        }
-        
-        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
-            // The service is not available.
-            return
-        }
-        locationManager.delegate = self
-        locationManager.startMonitoringSignificantLocationChanges()
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("location updated")
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(Error.self)
+    }
+//    func startReceivingSignificantLocationChanges() {
+//        let authorizationStatus = CLLocationManager.authorizationStatus()
+//        if authorizationStatus != .authorizedAlways {
+//            // if user has not authorized access to location information - display a popup to the user that requests authorization with message
+//            // "We need to access your location to show you the nearest stores"
+//            return
+//        }
+//
+//        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
+//            // The service is not available.
+//            return
+//        }
+//        locationManager.delegate = self
+//        locationManager.startMonitoringSignificantLocationChanges()
+//    }
+//
     // TODO: Once location is found - stop searching for location
     
     // TODO: Inform ShoeSuggestionsController class of user location
