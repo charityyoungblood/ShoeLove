@@ -11,7 +11,7 @@ import CoreLocation
 
 // this class will use user location (iPhone GPS) to display shoe store locations
 
-// since this is where user will see nearest locations, requesting location methods should be included in this class
+// *** From documentation : Request authorization at the point where you need location services. For example, wait until the user activates a feature of your app that requires location data. Don't request authorization at launch time unless you need the user's location immediately or your app was launched in the background by the system to handle a location update.*** 
 
 class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
