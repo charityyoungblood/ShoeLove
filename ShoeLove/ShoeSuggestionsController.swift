@@ -11,7 +11,7 @@ import CoreLocation
 
 // this class will use user location (iPhone GPS) to display shoe store locations
 
-// *** From documentation : Request authorization at the point where you need location services. For example, wait until the user activates a feature of your app that requires location data. Don't request authorization at launch time unless you need the user's location immediately or your app was launched in the background by the system to handle a location update.*** 
+// *** From documentation : Request authorization at the point where you need location services. For example, wait until the user activates a feature of your app that requires location data. Don't request authorization at launch time unless you need the user's location immediately or your app was launched in the background by the system to handle a location update.***
 
 class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
@@ -57,7 +57,7 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // TODO: Determine user location
+    // TODO: Determine user location - using the standard location services ** Ask for help with this one ** 
     
     //**IMPORTANT ASKING USER FOR LOCATION PERMISSION** It is recommended that you request only when-in-use authorization whenever possible. If your app requests and receives when-in-use authorization, you can make a separate request for always authorization later.
     
@@ -67,7 +67,9 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        isAppAuthorized()
         locationServicesAvailability()
+        locationManager.startUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
