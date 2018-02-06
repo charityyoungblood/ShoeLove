@@ -28,9 +28,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if !CLLocationManager.locationServicesEnabled() { // this will check if location services are enabled.
             //If they are - run program, if not display a popup with message to user to enable location services
             let alertController = UIAlertController(title: "Location services are disabled", message: "Please enable location services in Settings", preferredStyle: .alert)
-            
+            let userAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(userAction)
+            // does this need to be a loop -
         }
-        
+    }
         
 //        if CLLocationManager.locationServicesEnabled() { // why can't I use the locationManager instance variable here?
 //            switch CLLocationManager.authorizationStatus() {
@@ -57,7 +59,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isAppAuthorized()
+        locationServicesAvailability()
         
     
     }
