@@ -15,15 +15,20 @@ import CoreLocation
 
 class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
-   // if this page will show the location and GPS data, does it still need assigned as a delegate?
-    // or can I use the methods in ViewController in this class
-    
+    //MARK: - Create a new instance of CLLocationManager() object
+    /***************************************************************/
+
     let locationManager = CLLocationManager() // this represents creation of a new CLLocationManager() object with no parameters and storing it into
     // the variable "locationManager"
+    
+    
+    //MARK: - Check if your app is authorized/Request user authorization for location services
+    /******************************************************************************************/
     
     // TODO: Check to see if your app is authorized to use location services and request permission to access user location (display pop up window)
     
     // ** How do you ONLY request access if the user has not already granted access (don't ask every time the user uses the app)? **
+
     
     func isAppAuthorized(){
         locationManager.delegate = self
@@ -68,7 +73,7 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation() // this starts up the process where the locationManager starts looking for the GPS location of the iPhone - it is an asynchronous method
         // once .startUpdatingLocation() finds the GPS location - it needs to report back that location - since we said that we are the CLLocationManagerDelegate (we meaning ShoeSuggestionsViewController) - it will report back to that class once the coordinates are found
@@ -85,43 +90,33 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
             // The last value in the locations: [CLLocation] array (i.e. array.count - 1), is the one that will be the most accurate
             // To store that value, we want to create a constant, set to the last value in the [CLLocation] array
             // After that step, we have to check to see if locations are valid - in documentation: locations are valid if their horizontalAccuracy is greater than 0 (not negative number)
-            // Once we receive a VALID location, we want to stopUpdatingLocation()
+            // Once we receive a VALID location, we want to stopUpdatingLocation() - **SEE IMPORTANT NOTES**
+            // Next, we want to store the location coordinates into parameters and store into variables - which we can send to the Google Maps API
     
         // didFailWithError method - this method tells the delegate (ShoeSuggestionsController) that the location manager was unable to retrieve location data/value - this could be because user is in airplane mode, or does not have access to Wi-Fi
-        // if there was an error retrieving the location, we want to print to the console what the error was and tell the user their was an issue retrieving their location - can create UIAlert for this
+            // if there was an error retrieving the location, we want to print to the console what the error was and tell the user their was an issue retrieving their location - can create UIAlert for this
+            // if you receive an error for : Error Domain=kCLErrorDomain Code=1 "(null)" this is because the simulator does not have a location, like your iphone - the simulator DOES have simulated locations
+            // to access these, go to Simulator > select "Debug" from top menu > Location > Apple (or other location from list)
+    
+    
+    // TODO: Inform ShoeSuggestionsController class of user location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+         // TODO: Store user location - probably in a variable
         let accurateLocation = locations[locations.count - 1]
-        if accurateLocation.horizontalAccuracy > 0 {
+        if accurateLocation.horizontalAccuracy > 0 { // TODO: Once valid location is found - stop searching for location
             locationManager.stopUpdatingLocation()
             print("longitude = \(accurateLocation.coordinate.longitude), latitude = \(accurateLocation.coordinate.latitude)")
+            
+            let latitude = accurateLocation.coordinate.latitude
+            let longitude = accurateLocation.coordinate.longitude
+            
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
-        //UIAlertController
     }
-    //    func startReceivingSignificantLocationChanges() {
-    //        let authorizationStatus = CLLocationManager.authorizationStatus()
-    //        if authorizationStatus != .authorizedAlways {
-    //            // if user has not authorized access to location information - display a popup to the user that requests authorization with message
-    //            // "We need to access your location to show you the nearest stores"
-    //            return
-    //        }
-    //
-    //        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
-    //            // The service is not available.
-    //            return
-    //        }
-    //        locationManager.delegate = self
-    //        locationManager.startMonitoringSignificantLocationChanges()
-    //    }
-    //
-    // TODO: Once location is found - stop searching for location
-    
-    // TODO: Inform ShoeSuggestionsController class of user location
-    
-    // TODO: Store user location - probably in a variable
+ 
     
     // TODO: Access user location/connect user location to google maps
     
