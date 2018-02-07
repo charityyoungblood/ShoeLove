@@ -109,8 +109,8 @@
         <!--ShoeTypesViewController-->
         <scene sceneID="pUy-aX-upU">
             <objects>
-                <viewController title="ShoeTypesViewController" id="cDL-EH-lG8" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rUM-tu-Tmv" customClass="ShoeTy">
+                <viewController title="ShoeTypesViewController" id="cDL-EH-lG8" customClass="ShoeTypesController" customModule="ShoeLove" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rUM-tu-Tmv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -212,7 +212,7 @@
         <!--PricePreferenceViewController-->
         <scene sceneID="QGV-J9-sGX">
             <objects>
-                <viewController title="PricePreferenceViewController" id="qsp-gr-7xA" sceneMemberID="viewController">
+                <viewController title="PricePreferenceViewController" id="qsp-gr-7xA" customClass="PricePreferenceController" customModule="ShoeLove" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Py5-yC-sem">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -312,7 +312,7 @@
         <!--ShoeSuggestionsViewController-->
         <scene sceneID="XXI-Os-U68">
             <objects>
-                <viewController title="ShoeSuggestionsViewController" id="YG8-pJ-9di" sceneMemberID="viewController">
+                <viewController title="ShoeSuggestionsViewController" id="YG8-pJ-9di" customClass="ShoeSuggestionsController" customModule="ShoeLove" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oIz-xJ-Kds">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
