@@ -69,15 +69,26 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         isAppAuthorized()
         locationServicesAvailability()
-        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingLocation() // this starts up the process where the locationManager starts looking for the GPS location of the iPhone - it is an asynchronous method
+        // once .startUpdatingLocation() finds the GPS location - it needs to report back that location - since we said that we are the CLLocationManagerDelegate (we meaning ShoeSuggestionsViewController) - it will report back to that class once the coordinates are found
+        // in order to receive that message we have to create the "didUpdateLocations" method, with instructions on what to do with that data
     }
+    // ** Notes on below functions **
     
+        // didUpdateLocations method - this method tells the delegate (ShoeSiggestionsViewController) that new location data is available - once the locationManager.startUpdatingLocation() finishes looking for the data, it will send a message through the didUpdateLocations method telling the ShoeSuggestionsViewController that it has the location data
+        // didUpdateLocations method is the method that gets activated once the locationManager has found a location
+        // didUpdateLocations locations: [CLLocation] - when the locationManager finds a location, it saves it into an array of CLLocation objects
+            // CLLocation objects contain the geographical coordinates and altitude of the device’s location along with values indicating the accuracy of the measurements and when those measurements were made.
+            //
+        // didFailWithError method - this method tells the delegate (ShoeSuggestionsController) that the location manager was unable to retrieve location data/value - this could be because user is in airplane mode, or does not have access to Wi-Fi
+        // if there was an error retrieving the location, we want to print to the console what the error was and tell the user their was an issue retrieving their location - can create UIAlert for this
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("location updated")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(Error.self)
+        print(error)
+        //UIAlertController
     }
     //    func startReceivingSignificantLocationChanges() {
     //        let authorizationStatus = CLLocationManager.authorizationStatus()
