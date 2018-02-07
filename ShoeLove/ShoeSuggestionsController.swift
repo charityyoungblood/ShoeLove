@@ -79,11 +79,20 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
         // didUpdateLocations method is the method that gets activated once the locationManager has found a location
         // didUpdateLocations locations: [CLLocation] - when the locationManager finds a location, it saves it into an array of CLLocation objects
             // CLLocation objects contain the geographical coordinates and altitude of the device’s location along with values indicating the accuracy of the measurements and when those measurements were made.
-            //
+            // When you ask the locationManager to get the current location (by calling the locationManager.startUpdatingLocation() - each time it gets a new value, it adds that value to the locations: [CLLocation] array - so we end up with an array of multiple locations
+            // Since we're only interested in the most accurate location, as the locationManager narrows down accuracy over time - the first location may be a rough estimate, then it gets more and more precise with each location value
+            // The last value in the locations: [CLLocation] array (i.e. array.count - 1), is the one that will be the most accurate
+            // To store that value, we want to create a constant, set to the last value in the [CLLocation] array
+            // The first thing we have to do once we grab the values from the locations array, is check to see if they are valid
+    
         // didFailWithError method - this method tells the delegate (ShoeSuggestionsController) that the location manager was unable to retrieve location data/value - this could be because user is in airplane mode, or does not have access to Wi-Fi
         // if there was an error retrieving the location, we want to print to the console what the error was and tell the user their was an issue retrieving their location - can create UIAlert for this
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("location updated")
+        let accurateLocation = locations[locations.count - 1]
+        if accurateLocation.horizontalAccuracy > 0 {
+            locationManager.stopUpdatingLocation()
+            print("longitude = \(accurateLocation.coordinate.longitude), latitude = \(accurateLocation.coordinate.latitude)")
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
