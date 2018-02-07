@@ -117,7 +117,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwA-f2-kKt">
                                 <rect key="frame" x="87" y="177" width="200" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.072209649390000005" blue="0.032701432830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="159" green="226" blue="249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="Pumps">
                                     <color key="titleColor" red="1" green="0.99520999139999999" blue="0.95759032389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -317,23 +317,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Nearest locations for your purchase " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFI-na-eah">
-                                <rect key="frame" x="7" y="70" width="360" height="85"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZ1-Om-FNm">
+                                <rect key="frame" x="0.0" y="143" width="375" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nearest locations for your purchase " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFI-na-eah">
+                                <rect key="frame" x="7" y="65" width="360" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NZ1-Om-FNm">
-                                <rect key="frame" x="0.0" y="143" width="375" height="504"/>
-                            </mapView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.97983257989999994" blue="0.90577685929999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NZ1-Om-FNm" firstAttribute="centerX" secondItem="rFI-na-eah" secondAttribute="centerX" id="4Of-0W-hr1"/>
-                            <constraint firstItem="NZ1-Om-FNm" firstAttribute="leading" secondItem="fwz-3T-aac" secondAttribute="leading" id="TS2-v3-Tg8"/>
-                            <constraint firstItem="NZ1-Om-FNm" firstAttribute="trailing" secondItem="fwz-3T-aac" secondAttribute="trailing" id="gu4-7v-N9y"/>
-                            <constraint firstItem="rFI-na-eah" firstAttribute="centerX" secondItem="fwz-3T-aac" secondAttribute="centerX" id="kni-e9-Yfr"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.62352941176470589" green="0.88627450980392153" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="fwz-3T-aac"/>
                     </view>
                 </viewController>
