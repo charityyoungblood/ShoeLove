@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 // this class will use user location (iPhone GPS) to display shoe store locations
 
 // *** From documentation : Request authorization at the point where you need location services. For example, wait until the user activates a feature of your app that requires location data. Don't request authorization at launch time unless you need the user's location immediately or your app was launched in the background by the system to handle a location update.***
 
-class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
+class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     //MARK: - Create a new instance of CLLocationManager() object
     /***************************************************************/
@@ -31,12 +32,24 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
 
     
     func isAppAuthorized(){
-        locationManager.delegate = self
-        
+        if CLLocationManager.locationServicesEnabled() {
         // ** Why can't I use locationManager.authorizationStatus() since locationManager is an instance of the CLLocationManager class? ***
         
-        if CLLocationManager.authorizationStatus() == .notDetermined || CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .restricted {
-            locationManager.requestWhenInUseAuthorization()
+            if CLLocationManager.authorizationStatus() == .denied {
+                let alert = UIAlertController(title: "App Permission Denied", message: "Please enable location services in Settings", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                    switch action.style{
+                    case .default:
+                        print("default")
+                        
+                    case .cancel:
+                        print("cancel")
+                        
+                    case .destructive:
+                        print("destructive")
+                    }}))
+                
+            }
         }
     }
     //        this else statement isn't needed - refer to for how to create UIAlertController {
@@ -72,6 +85,7 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        isAppAuthorized()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
@@ -117,7 +131,15 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
         print(error)
     }
  
+    let map = MKMapView()
     
+    // TODO: create method to show shoe store locations
+    func showStoreLocations() {
+        map.delegate = self
+        
+    
+    }
+    }
     // TODO: Access user location/connect user location to google maps
     
     // TODO: Evaluate user price preferences
