@@ -15,9 +15,6 @@ import CoreLocation
 
 class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
-   // if this page will show the location and GPS data, does it still need assigned as a delegate?
-    // or can I use the methods in ViewController in this class
-    
     let locationManager = CLLocationManager() // this represents creation of a new CLLocationManager() object with no parameters and storing it into
     // the variable "locationManager"
     
@@ -95,25 +92,12 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+ 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
         //UIAlertController
     }
-    //    func startReceivingSignificantLocationChanges() {
-    //        let authorizationStatus = CLLocationManager.authorizationStatus()
-    //        if authorizationStatus != .authorizedAlways {
-    //            // if user has not authorized access to location information - display a popup to the user that requests authorization with message
-    //            // "We need to access your location to show you the nearest stores"
-    //            return
-    //        }
-    //
-    //        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
-    //            // The service is not available.
-    //            return
-    //        }
-    //        locationManager.delegate = self
-    //        locationManager.startMonitoringSignificantLocationChanges()
-    //    }
+   
     //
     // TODO: Once location is found - stop searching for location
     
