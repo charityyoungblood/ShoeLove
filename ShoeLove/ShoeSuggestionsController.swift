@@ -67,8 +67,9 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isAppAuthorized()
-        locationServicesAvailability()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation() // this starts up the process where the locationManager starts looking for the GPS location of the iPhone - it is an asynchronous method
         // once .startUpdatingLocation() finds the GPS location - it needs to report back that location - since we said that we are the CLLocationManagerDelegate (we meaning ShoeSuggestionsViewController) - it will report back to that class once the coordinates are found
         // in order to receive that message we have to create the "didUpdateLocations" method, with instructions on what to do with that data
@@ -83,7 +84,8 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
             // Since we're only interested in the most accurate location, as the locationManager narrows down accuracy over time - the first location may be a rough estimate, then it gets more and more precise with each location value
             // The last value in the locations: [CLLocation] array (i.e. array.count - 1), is the one that will be the most accurate
             // To store that value, we want to create a constant, set to the last value in the [CLLocation] array
-            // The first thing we have to do once we grab the values from the locations array, is check to see if they are valid
+            // After that step, we have to check to see if locations are valid - in documentation: locations are valid if their horizontalAccuracy is greater than 0 (not negative number)
+            // Once we receive a VALID location, we want to stopUpdatingLocation()
     
         // didFailWithError method - this method tells the delegate (ShoeSuggestionsController) that the location manager was unable to retrieve location data/value - this could be because user is in airplane mode, or does not have access to Wi-Fi
         // if there was an error retrieving the location, we want to print to the console what the error was and tell the user their was an issue retrieving their location - can create UIAlert for this
