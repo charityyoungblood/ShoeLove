@@ -12,23 +12,23 @@ import MapKit
 
 // this class will use user location (iPhone GPS) to display shoe store locations
 
-// *** From documentation : Request authorization at the point where you need location services. For example, wait until the user activates a feature of your app that requires location data. Don't request authorization at launch time unless you need the user's location immediately or your app was launched in the background by the system to handle a location update.***
+// *** From documentation : Request authorization at the point where you need location services. For example, wait until the user activates a feature of your app that requires location data. Don't request authorization at launch time, unless you need the user's location immediately or your app was launched in the background by the system to handle a location update.***
 
-class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
+class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    //MARK: - Create CLLocationManager object
+    /*********************************************************/
     
     let locationManager = CLLocationManager() // this represents creation of a new CLLocationManager() object with no parameters and storing it into
     // the variable "locationManager"
     
+    //MARK: - Check if your app is authorized to use location services
+    /******************************************************************/
     
-    //MARK: - Check if your app is authorized/Request user authorization for location services
-    /******************************************************************************************/
-    
-    // TODO: Check to see if your app is authorized to use location services and request permission to access user location (display pop up window)
-    
-    // ** How do you ONLY request access if the user has not already granted access (don't ask every time the user uses the app)? **
+    // ** How do you ONLY request access if the user has not already granted access (don't ask every time the user uses the app)? - not available? Also cannot ask user for permission more than once **
 
     
-    func isAppAuthorized(){
+    func isAppAuthorized(){ // this method should prompt the user for location services permission if they have disable location services
         if CLLocationManager.locationServicesEnabled() {
         // ** Why can't I use locationManager.authorizationStatus() since locationManager is an instance of the CLLocationManager class? ***
         
@@ -49,13 +49,9 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-    //        this else statement isn't needed - refer to for how to create UIAlertController {
-    //            let authorizeAppController = UIAlertController(title: "This App needs your authorization", message: "Please authorize location services", preferredStyle: .alert)
-    //            authorizeAppController.addAction(UIAlertAction(title: "authorize app", style: .`default`, handler: nil))
-    //                self.present(authorizeAppController, animated: true, completion: nil)
-    //    }
     
-    // TODO: Determine the availability of location services
+    //MARK: - Determine the availability of location services
+    /*********************************************************/
     
     func locationServicesAvailability() {
         locationManager.delegate = self
@@ -72,13 +68,8 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // TODO: Determine user location - using the standard location services ** Ask for help with this one ** 
-    
-    //**IMPORTANT ASKING USER FOR LOCATION PERMISSION** It is recommended that you request only when-in-use authorization whenever possible. If your app requests and receives when-in-use authorization, you can make a separate request for always authorization later.
-    
-    // **IMPORTANT TODO: PICKING SERVICE TYPE TO FETCH USER LOCATION** - To help save power, disable location services (or switch to a lower-power alternative) when you do not need the location data offered by the service. For example, you might disable location services when your app is in the background and would not use that data otherwise.
-    
-    // TODO: disable location services when your app is in the background to save user battery
+    //MARK: - Ask user permission to access location - displays pop up window AND determine user location (.startUpdatingLocation())
+    /*******************************************************************************************************************************/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +81,13 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
         // once .startUpdatingLocation() finds the GPS location - it needs to report back that location - since we said that we are the CLLocationManagerDelegate (we meaning ShoeSuggestionsViewController) - it will report back to that class once the coordinates are found
         // in order to receive that message we have to create the "didUpdateLocations" method, with instructions on what to do with that data
     }
+    
+    //**IMPORTANT ASKING USER FOR LOCATION PERMISSION** It is recommended that you request only when-in-use authorization whenever possible. If your app requests and receives when-in-use authorization, you can make a separate request for always authorization later.
+    
+    // **IMPORTANT TODO: PICKING SERVICE TYPE TO FETCH USER LOCATION** - To help save power, disable location services (or switch to a lower-power alternative) when you do not need the location data offered by the service. For example, you might disable location services when your app is in the background and would not use that data otherwise.
+    
+    // TODO: disable location services when your app is in the background to save user battery
+    
     // ** Notes on below functions **
     
         // didUpdateLocations method - this method tells the delegate (ShoeSiggestionsViewController) that new location data is available - once the locationManager.startUpdatingLocation() finishes looking for the data, it will send a message through the didUpdateLocations method telling the ShoeSuggestionsViewController that it has the location data
@@ -109,12 +107,13 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
             // if you receive an error for : Error Domain=kCLErrorDomain Code=1 "(null)" this is because the simulator does not have a location, like your iphone - the simulator DOES have simulated locations
             // to access these, go to Simulator > select "Debug" from top menu > Location > Apple (or other location from list)
     
+    //MARK: - Inform delegate (ShoeSuggestionsController) of user location
+    /*********************************************************************/
     
-    // TODO: Inform ShoeSuggestionsController class of user location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-         // TODO: Store user location - probably in a variable
-        let accurateLocation = locations[locations.count - 1]
-        if accurateLocation.horizontalAccuracy > 0 { // TODO: Once valid location is found - stop searching for location
+        
+        let accurateLocation = locations[locations.count - 1] // this stores user location into variable
+        if accurateLocation.horizontalAccuracy > 0 { // line 112 ensures once a valid location is found - the app will stop searching for location
             locationManager.stopUpdatingLocation()
             print("longitude = \(accurateLocation.coordinate.longitude), latitude = \(accurateLocation.coordinate.latitude)")
             
@@ -124,21 +123,23 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
- 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
    
-    //
-    // TODO: Once location is found - stop searching for location
+    //MARK: - Create method to show shoe store locations on Google Maps or iPhone Maps
+    /*********************************************************************************/
     
     // TODO: create method to show shoe store locations
+    
+    let map = MKMapView()
     func showStoreLocations() {
-        map.delegate = self
         
+        map.delegate = self
     
     }
     }
+
     // TODO: Access user location/connect user location to google maps
     
     // TODO: Evaluate user price preferences
@@ -161,6 +162,6 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate {
     //MARK: - 
     /***************************************************************/
 
-  
 
-}
+
+
