@@ -117,10 +117,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwA-f2-kKt">
                                 <rect key="frame" x="87" y="177" width="200" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="159" green="226" blue="249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="Pumps">
-                                    <color key="titleColor" red="1" green="0.99520999139999999" blue="0.95759032389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -313,14 +313,10 @@
         <scene sceneID="XXI-Os-U68">
             <objects>
                 <viewController title="ShoeSuggestionsViewController" id="YG8-pJ-9di" customClass="ShoeSuggestionsController" customModule="ShoeLove" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oIz-xJ-Kds">
+                    <view key="view" contentMode="scaleAspectFit" id="oIz-xJ-Kds">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZ1-Om-FNm">
-                                <rect key="frame" x="0.0" y="143" width="375" height="524"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nearest locations for your purchase " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFI-na-eah">
                                 <rect key="frame" x="7" y="65" width="360" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -328,14 +324,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZ1-Om-FNm">
+                                <rect key="frame" x="0.0" y="160" width="375" height="507"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <variation key="heightClass=regular-widthClass=compact" preservesSuperviewLayoutMargins="YES">
+                                    <nil key="backgroundColor"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" preservesSuperviewLayoutMargins="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="0.62352941176470589" green="0.88627450980392153" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="fwz-3T-aac"/>
+                        <variation key="heightClass=regular-widthClass=compact" preservesSuperviewLayoutMargins="NO">
+                            <color key="backgroundColor" red="0.62352941176470589" green="0.88627450980392153" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="NZ1-Om-FNm" id="cXK-9P-Kbh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Du9-rz-vfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2080.8000000000002" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2079.1999999999998" y="131.78410794602701"/>
         </scene>
     </scenes>
     <resources>
