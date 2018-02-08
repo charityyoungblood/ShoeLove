@@ -73,13 +73,14 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isAppAuthorized()
+       
         locationManager.delegate = self
         self.mapView.showsUserLocation = true
         self.mapView.userTrackingMode = .follow
         self.mapView.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
+         isAppAuthorized()
         locationManager.startUpdatingLocation() // this starts up the process where the locationManager starts looking for the GPS location of the iPhone - it is an asynchronous method
         // once .startUpdatingLocation() finds the GPS location - it needs to report back that location - since we said that we are the CLLocationManagerDelegate (we meaning ShoeSuggestionsViewController) - it will report back to that class once the coordinates are found
         // in order to receive that message we have to create the "didUpdateLocations" method, with instructions on what to do with that data
@@ -142,7 +143,7 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
     
     @IBOutlet weak var mapView: MKMapView!
     
-    func zoomLocation() { // ** Currently not zooming in to map **
+    func zoomLocation() { //
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             var region = MKCoordinateRegion()
             region.span = MKCoordinateSpanMake(0.7, 0.7); //Zoom distance
