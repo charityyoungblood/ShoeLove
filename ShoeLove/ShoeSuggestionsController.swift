@@ -80,7 +80,7 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
         self.mapView.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
-         isAppAuthorized()
+        isAppAuthorized()
         locationManager.startUpdatingLocation() // this starts up the process where the locationManager starts looking for the GPS location of the iPhone - it is an asynchronous method
         // once .startUpdatingLocation() finds the GPS location - it needs to report back that location - since we said that we are the CLLocationManagerDelegate (we meaning ShoeSuggestionsViewController) - it will report back to that class once the coordinates are found
         // in order to receive that message we have to create the "didUpdateLocations" method, with instructions on what to do with that data
@@ -127,8 +127,7 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
 //            let latitude = accurateLocation.coordinate.latitude
 //            let longitude = accurateLocation.coordinate.longitude
 //
-            mapView.userLocation.coordinate.latitude
-            mapView.userLocation.coordinate.longitude
+   
         }
     }
     
@@ -143,12 +142,13 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
     
     @IBOutlet weak var mapView: MKMapView!
     
-    func zoomLocation() { //
+    func zoomLocation() { // this function zooms in to user location
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-            var region = MKCoordinateRegion()
-            region.span = MKCoordinateSpanMake(0.7, 0.7); //Zoom distance
+//            var region = MKCoordinateRegion()
+            let span = MKCoordinateSpanMake(0.002, 0.002); // the number values refer to the distance between the center radius and the screen
             let coordinate = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude:  userLocation.coordinate.longitude)
-            region.center = coordinate
+            let region = MKCoordinateRegionMake(coordinate, span)
+//            region.center = coordinate
             mapView.setRegion(region, animated: true)
     }
     }
