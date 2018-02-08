@@ -75,12 +75,15 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
         super.viewDidLoad()
         isAppAuthorized()
         locationManager.delegate = self
+        self.mapView.showsUserLocation = true
+        self.mapView.userTrackingMode = .follow
+        self.mapView.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation() // this starts up the process where the locationManager starts looking for the GPS location of the iPhone - it is an asynchronous method
         // once .startUpdatingLocation() finds the GPS location - it needs to report back that location - since we said that we are the CLLocationManagerDelegate (we meaning ShoeSuggestionsViewController) - it will report back to that class once the coordinates are found
         // in order to receive that message we have to create the "didUpdateLocations" method, with instructions on what to do with that data
-        showStoreLocations()
+      zoomLocation()
         
     }
     
@@ -139,8 +142,15 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
     
     @IBOutlet weak var mapView: MKMapView!
     
-    
-   
+    func zoomLocation() { // ** Currently not zooming in to map **
+        func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+            var region = MKCoordinateRegion()
+            region.span = MKCoordinateSpanMake(0.7, 0.7); //Zoom distance
+            let coordinate = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude:  userLocation.coordinate.longitude)
+            region.center = coordinate
+            mapView.setRegion(region, animated: true)
+    }
+    }
     func showStoreLocations() {
        // display user location
         // display map of stores
