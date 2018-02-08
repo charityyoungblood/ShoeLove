@@ -80,6 +80,8 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
         locationManager.startUpdatingLocation() // this starts up the process where the locationManager starts looking for the GPS location of the iPhone - it is an asynchronous method
         // once .startUpdatingLocation() finds the GPS location - it needs to report back that location - since we said that we are the CLLocationManagerDelegate (we meaning ShoeSuggestionsViewController) - it will report back to that class once the coordinates are found
         // in order to receive that message we have to create the "didUpdateLocations" method, with instructions on what to do with that data
+        showStoreLocations()
+        
     }
     
     //**IMPORTANT ASKING USER FOR LOCATION PERMISSION** It is recommended that you request only when-in-use authorization whenever possible. If your app requests and receives when-in-use authorization, you can make a separate request for always authorization later.
@@ -115,11 +117,14 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
         let accurateLocation = locations[locations.count - 1] // this stores user location into variable
         if accurateLocation.horizontalAccuracy > 0 { // line 112 ensures once a valid location is found - the app will stop searching for location
             locationManager.stopUpdatingLocation()
+            locationManager.delegate = nil
             print("longitude = \(accurateLocation.coordinate.longitude), latitude = \(accurateLocation.coordinate.latitude)")
             
-            let latitude = accurateLocation.coordinate.latitude
-            let longitude = accurateLocation.coordinate.longitude
-            
+//            let latitude = accurateLocation.coordinate.latitude
+//            let longitude = accurateLocation.coordinate.longitude
+//
+            mapView.userLocation.coordinate.latitude
+            mapView.userLocation.coordinate.longitude
         }
     }
     
@@ -137,16 +142,12 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
     
    
     func showStoreLocations() {
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        let regionRadius: CLLocationDistance = 1000
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
-            mapView.setRegion(coordinateRegion, animated: true)
+       // display user location
+        // display map of stores
+       
         }
+}
 
-    
-    }
-    }
 
     // TODO: Access user location/connect user location to google maps
     
