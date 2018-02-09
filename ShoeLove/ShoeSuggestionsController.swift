@@ -19,7 +19,7 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
     //MARK: - Create CLLocationManager object
     /*********************************************************/
     
-    let locationManager = CLLocationManager() // this represents creation of a new CLLocationManager() object with no parameters and storing it into
+    let locationManager = CLLocationManager()  // this represents creation of a new CLLocationManager() object with no parameters and storing it into
     // the variable "locationManager"
     
     //MARK: - Check if your app is authorized to use location services
