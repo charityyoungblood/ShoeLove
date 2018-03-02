@@ -151,7 +151,7 @@ class ShoeSuggestionsController: UIViewController, CLLocationManagerDelegate, MK
 //            region.center = coordinate
             mapView.setRegion(region, animated: true)
     }
-    }
+    }  
     func showStoreLocations() {
        // display user location
         // display map of stores
