@@ -10,6 +10,26 @@ import UIKit
 
 class PricePreferenceController: UIViewController {
 
+    @IBAction func underFifty(_ sender: UIButton) {
+        // change Shoe Suggestions stores to display hyperlink connected to button for the following stores: - make sure link goes directly to the under $50 page
+        // Asos
+        // Belk
+        // ShopBop
+        // Nordstrom Rack
+    }
+    
+    
+    @IBAction func fiftyToOneHundred(_ sender: UIButton) {
+    }
+    
+    @IBAction func oneHundredToTwoFifty(_ sender: UIButton) {
+        // display Nordstrom, Revolve, Saks Off Fifth, Glamest
+    }
+    
+    @IBAction func aboveTwoFifty(_ sender: UIButton) {
+        // display ShopBazaar, Barneys Warehouse, NeimanMarcus
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
